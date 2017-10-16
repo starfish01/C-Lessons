@@ -9,36 +9,37 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <br />
             <asp:Image ID="Image1" runat="server" />
 &nbsp;Papa Bob&#39;s Pizza and Software<br />
             <br />
-            <asp:RadioButton ID="pizzaSizeSmall" runat="server" GroupName="pizzaSizeGroup" Text="Small pizza (10&quot;) - $10" />
+            <asp:RadioButton ID="pizzaSizeSmallCheckBox" runat="server" GroupName="pizzaSizeGroup" Text="Small pizza (10&quot;) - $10" />
             <br />
-            <asp:RadioButton ID="pizzaSizeMedium" runat="server" GroupName="pizzaSizeGroup" Text="Medium pizza (13&quot;) - $13" />
+            <asp:RadioButton ID="pizzaSizeMediumCheckBox" runat="server" GroupName="pizzaSizeGroup" Text="Medium pizza (13&quot;) - $13" />
             <br />
-            <asp:RadioButton ID="pizzaSizeLarge" runat="server" GroupName="pizzaSizeGroup" Text="Large pizza (16&quot;) - $16" />
-            <br />
-            <br />
-            <asp:RadioButton ID="pizzaBaseThin" runat="server" GroupName="pizzaBaseGroup" Text="Thin crust" />
-            <br />
-            <asp:RadioButton ID="pizzaBaseDeep" runat="server" GroupName="pizzaBaseGroup" Text="Deep Dish (+$2)" />
+            <asp:RadioButton ID="pizzaSizeLargeCheckBox" runat="server" GroupName="pizzaSizeGroup" Text="Large pizza (16&quot;) - $16" />
             <br />
             <br />
-            <asp:CheckBox ID="ingPepperoni" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Pepperoni (+$1.50)" />
+            <asp:RadioButton ID="pizzaBaseThinCheckBox" runat="server" GroupName="pizzaBaseGroup" Text="Thin crust" />
             <br />
-            <asp:CheckBox ID="ingOnions" runat="server" Text="Onion (+$0.75)" />
+            <asp:RadioButton ID="pizzaBaseDeepCheckBox" runat="server" GroupName="pizzaBaseGroup" Text="Deep Dish (+$2)" />
             <br />
-            <asp:CheckBox ID="ingGreenPeppers" runat="server" Text="Green Peppers (+$0.50)" />
             <br />
-            <asp:CheckBox ID="ingRedPeppers" runat="server" Text="Red Peppers (+$0.75)" />
+            <asp:CheckBox ID="ingPepperoniCheckBox" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Pepperoni (+$1.50)" />
             <br />
-            <asp:CheckBox ID="ingAnchovies" runat="server" Text="Anchovies (+$2)" />
+            <asp:CheckBox ID="ingOnionsCheckBox" runat="server" Text="Onion (+$0.75)" />
+            <br />
+            <asp:CheckBox ID="ingGreenPeppersCheckBox" runat="server" Text="Green Peppers (+$0.50)" />
+            <br />
+            <asp:CheckBox ID="ingRedPeppersCheckBox" runat="server" Text="Red Peppers (+$0.75)" />
+            <br />
+            <asp:CheckBox ID="ingAnchoviesCheckBox" runat="server" Text="Anchovies (+$2)" />
             <br />
             <br />
             Papa Bob&#39;s Special Deal<br />
             Save $2.00 when you add Pepporoni, Green Peppers and Anchovies, OR Pepporoni, Red Peppers, and Onions to your pizza.<br />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Button" />
+            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
             <br />
             <br />
             Total cost<br />
