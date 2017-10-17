@@ -93,6 +93,8 @@ namespace ChallengePapaBobsPizza
             if (ingAnchoviesCheckBox.Checked)
                 total += ingrAnchovies;
 
+            
+
             return total;
         }
 
