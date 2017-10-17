@@ -59,6 +59,7 @@ namespace ChallengePapaBobsPizza
 
         private double getBaseCost()
         {
+
             if (pizzaSizeSmallCheckBox.Checked)
                 return smallPizza;
             else if (pizzaSizeMediumCheckBox.Checked)
