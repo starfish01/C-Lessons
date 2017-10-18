@@ -31,57 +31,66 @@ namespace ChallengeEpicSpiesAssignment {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
-        /// TextBox1 control.
+        /// spyCodeNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox spyCodeNameTextBox;
         
         /// <summary>
-        /// TextBox2 control.
+        /// assignmentNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox assignmentNameTextBox;
         
         /// <summary>
-        /// Calendar1 control.
+        /// endPreviousCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.Calendar endPreviousCalendar;
         
         /// <summary>
-        /// Calendar2 control.
+        /// startAssignmentCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar2;
+        protected global::System.Web.UI.WebControls.Calendar startAssignmentCalendar;
         
         /// <summary>
-        /// Calendar3 control.
+        /// endNewAssignmentCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar3;
+        protected global::System.Web.UI.WebControls.Calendar endNewAssignmentCalendar;
         
         /// <summary>
-        /// Button1 control.
+        /// assignSpyButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button assignSpyButton;
+        
+        /// <summary>
+        /// resultLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label resultLabel;
     }
 }

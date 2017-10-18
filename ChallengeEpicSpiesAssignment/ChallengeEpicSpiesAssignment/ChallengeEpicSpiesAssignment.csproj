@@ -75,17 +75,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Defualt.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="epic-spies-logo.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Defualt.aspx.cs">
-      <DependentUpon>Defualt.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Defualt.aspx.designer.cs">
-      <DependentUpon>Defualt.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
