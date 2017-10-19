@@ -13,12 +13,42 @@ namespace ChallengeEpicSpiesAssignment
         {
             if (!IsPostBack)
             {
-
+                endPreviousCalendar.SelectedDate = endPreviousCalendar.VisibleDate = DateTime.Today;
+                startAssignmentCalendar.SelectedDate = startAssignmentCalendar.VisibleDate = DateTime.Today.AddDays(14);
+                endNewAssignmentCalendar.SelectedDate = endNewAssignmentCalendar.VisibleDate = DateTime.Today.AddDays(21);
             }
+            this.Page.MaintainScrollPositionOnPostBack = true;
+
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (spyUnionDemands())
+            {
+
+            }
+
+
+            
+        }
+
+        private bool spyUnionDemands()
+        {
+            DateTime endDate = endPreviousCalendar.SelectedDate;
+            DateTime startDate = startAssignmentCalendar.SelectedDate;
+
+            int days = Math.Abs(endDate.Day - startDate.Day);
+
+            if (days >= 14)
+                return true;
+
+            //show error message
+
+            //change date to 14 days out highlight date 
+
+
+            return false;
 
         }
     }

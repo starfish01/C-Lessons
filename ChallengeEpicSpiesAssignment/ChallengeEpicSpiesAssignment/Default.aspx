@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ChallengeEpicSpiesAssignment.Defualt" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/epic-spies-logo.jpg" />
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/epic-spies-logo.jpg" Height="190px" />
             <br />
             Spy New Assignment Form<br />
             Spy Code Name:
