@@ -19,10 +19,11 @@
             <br />
             Elections Rigged: <asp:TextBox ID="electionsRiggedTextBox" runat="server"></asp:TextBox>
             <br />
-            Acts of Subterfuge Performed: <asp:TextBox ID="subterfugeTextBox" runat="server"></asp:TextBox>
+            Acts of Subterfuge Performed:
+            <asp:TextBox ID="subterfugeTextBox" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="resultButton" runat="server" Text="Add Asset" />
+            <asp:Button ID="resultButton" runat="server" OnClick="resultButton_Click" Text="Add Asset" />
             <br />
             <br />
             <asp:Label ID="resultLabel" runat="server"></asp:Label>
