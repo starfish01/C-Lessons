@@ -28,11 +28,8 @@ namespace ChallengeEpicSpiesAssetTracker
                 //create object
                 SpyClass newData = GrabData();
 
-                resultLabel.Text = newData.SubterfugePerformed.ToString();
-
                 //check if spy already is in list
-
-                // insert object into list
+                InsertNewInformation(newData);
 
                 // display information
 
@@ -43,17 +40,27 @@ namespace ChallengeEpicSpiesAssetTracker
 
         }
 
+        private void InsertNewInformation(SpyClass newData)
+        {
+           int a = spyList.Count(x => x.Name == newData.Name);
+
+            resultLabel.Text = a.ToString();
+
+        }
+
         private SpyClass GrabData()
         {
-            int electionsRigged;
+            int electionsRigged, Subterfuge;
             SpyClass newData = new SpyClass();
 
 
             newData.Name = assetNameTextBox.Text;
             int.TryParse(electionsRiggedTextBox.Text, out electionsRigged);
-           
-           // newData.SubterfugePerformed = int.Parse(subterfugeTextBox.Text);
+            int.TryParse(subterfugeTextBox.Text, out Subterfuge);
 
+            newData.ElectionsRigged = electionsRigged;
+            newData.SubterfugePerformed = Subterfuge;
+            
             return newData;
         }
 
