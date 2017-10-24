@@ -9,13 +9,17 @@ namespace ChallengeEpicSpiesAssetTracker
 {
     public partial class Default : System.Web.UI.Page
     {
-        List<SpyClass> spyList = new List<SpyClass>();
+        List<SpyClass> spyList;
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
-            if (!IsPostBack)
+            if(ViewState["SpyListValue"] != null)
             {
+                spyList = (List<SpyClass>)ViewState["SpyListValue"];
+            } else
+            {
+                List<SpyClass> spyList = new List<SpyClass>();
+                ViewState.Add("SpyListValue", spyList);
             }
 
 
@@ -23,6 +27,12 @@ namespace ChallengeEpicSpiesAssetTracker
 
         protected void resultButton_Click(object sender, EventArgs e)
         {
+
+
+
+            spyList = (List<SpyClass>)ViewState["SpyListValue"];
+
+            
             //check name textbox has been filled in not null not whitespace
             if (CheckIfNameSpaceHasBeenFilledIn())
             {
@@ -34,6 +44,9 @@ namespace ChallengeEpicSpiesAssetTracker
 
                 // display information
 
+
+                ViewState["SpyListValue"] = spyList;
+
             }
             
 
@@ -43,18 +56,15 @@ namespace ChallengeEpicSpiesAssetTracker
 
         private void InsertNewInformation(SpyClass newData)
         {
-            String name = newData.Name;
-
-            spyList.Add(newData);
-
-            resultLabel.Text = spyList.Count.ToString();
             
             foreach(var el in spyList)
             {
                 
-                //if (el.Name == newData.Name)
-                    //resultLabel.Text = "true";
+               if (String.Equals(el.Name, newData.Name))
+                    resultLabel.Text = "true";
             }
+
+            spyList.Add(newData);
 
         }
 

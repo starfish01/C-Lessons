@@ -5,6 +5,8 @@ using System.Web;
 
 namespace ChallengeEpicSpiesAssetTracker
 {
+
+    [Serializable]
     public class SpyClass
     {
         public string Name { get; set; }
