@@ -9,12 +9,13 @@ namespace ChallengeEpicSpiesAssetTracker
 {
     public partial class Default : System.Web.UI.Page
     {
-        List<SpyClass> spyList;
+        List<SpyClass> spyList = new List<SpyClass>();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             if (!IsPostBack)
             {
-                spyList = new List<SpyClass>();
             }
 
 
@@ -42,9 +43,18 @@ namespace ChallengeEpicSpiesAssetTracker
 
         private void InsertNewInformation(SpyClass newData)
         {
-           int a = spyList.Count(x => x.Name == newData.Name);
+            String name = newData.Name;
 
-            resultLabel.Text = a.ToString();
+            spyList.Add(newData);
+
+            resultLabel.Text = spyList.Count.ToString();
+            
+            foreach(var el in spyList)
+            {
+                
+                //if (el.Name == newData.Name)
+                    //resultLabel.Text = "true";
+            }
 
         }
 
