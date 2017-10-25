@@ -56,6 +56,7 @@ namespace ChallengeEpicSpiesAssetTracker
         private void DisplaySpyList()
         {
             resultLabel.Text = "";
+
             foreach(var el in spyList)
             {
                 resultLabel.Text += el.Name + " Elections Rigged: " + el.ElectionsRigged +
