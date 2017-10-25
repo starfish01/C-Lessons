@@ -27,9 +27,7 @@ namespace ChallengeEpicSpiesAssetTracker
 
         protected void resultButton_Click(object sender, EventArgs e)
         {
-
-
-
+            
             spyList = (List<SpyClass>)ViewState["SpyListValue"];
 
             
@@ -43,7 +41,8 @@ namespace ChallengeEpicSpiesAssetTracker
                 InsertNewInformation(newData);
 
                 // display information
-
+                DisplaySpyList();
+               
 
                 ViewState["SpyListValue"] = spyList;
 
@@ -54,17 +53,45 @@ namespace ChallengeEpicSpiesAssetTracker
 
         }
 
+        private void DisplaySpyList()
+        {
+            resultLabel.Text = "";
+            foreach(var el in spyList)
+            {
+                resultLabel.Text += el.Name + " Elections Rigged: " + el.ElectionsRigged +
+                    " Subterfuge Performed: " + el.SubterfugePerformed;
+                resultLabel.Text += "</br>";
+
+
+
+            }
+
+
+
+        }
+
         private void InsertNewInformation(SpyClass newData)
         {
-            
+            int checkUser = 0;
+
+
             foreach(var el in spyList)
             {
                 
                if (String.Equals(el.Name, newData.Name))
-                    resultLabel.Text = "true";
+                {
+                    checkUser = 1;
+                    el.ElectionsRigged += newData.ElectionsRigged;
+                    el.SubterfugePerformed += newData.SubterfugePerformed;
+
+                }
             }
 
-            spyList.Add(newData);
+            if(checkUser == 0)
+            {
+                spyList.Add(newData);
+
+            }
 
         }
 
