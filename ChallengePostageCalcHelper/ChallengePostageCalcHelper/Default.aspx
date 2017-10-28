@@ -28,6 +28,7 @@
             <asp:RadioButton ID="nextDayRadioButton" runat="server" GroupName="radio" Text="Next Day" />
             <br />
             <br />
+            <br />
             <asp:Label ID="resultLabel" runat="server"></asp:Label>
         </div>
     </form>
