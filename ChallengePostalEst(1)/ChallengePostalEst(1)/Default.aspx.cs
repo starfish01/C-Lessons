@@ -61,14 +61,30 @@ namespace ChallengePostalEst_1_
 
             CostToSendPackage();
 
-            resultLabel.Text = pC.GetLength().ToString();
+            DisplayCost();
 
+
+        }
+
+        private void DisplayCost()
+        {
+            String costString = (pC.GetCost().ToString("C"));
+
+            String output = String.Format("The cost to send this Package is {0}.", costString);
+
+            resultLabel.Text = output;
 
         }
 
         private void CostToSendPackage()
         {
-            
+            if (pC.GetLength() == 0)
+            {
+                pC.SetCostToSend(pC.GetHeight() * pC.GetWidth() * pC.GetTransport());
+                return;
+            }
+
+            pC.SetCostToSend(pC.GetHeight() * pC.GetWidth()* pC.GetLength() * pC.GetTransport());
 
         }
 
