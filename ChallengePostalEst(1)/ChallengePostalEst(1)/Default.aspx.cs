@@ -9,6 +9,8 @@ namespace ChallengePostalEst_1_
 {
     public partial class Default : System.Web.UI.Page
     {
+        PackageClass pC;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -47,20 +49,64 @@ namespace ChallengePostalEst_1_
         private void CheckCalculation()
         {
 
+            pC = new PackageClass();
+
+            resultLabel.Text = "";
+           
             if (!CheckTextBoxsAreCorrect())
                 return;
 
-            resultLabel.Text = "hello";
+            if (!CheckRadioBoxHasBeenSelected())
+                return;
+
+            CostToSendPackage();
+
+            resultLabel.Text = pC.GetLength().ToString();
+
+
+        }
+
+        private void CostToSendPackage()
+        {
+            
+
+        }
+
+        private bool CheckRadioBoxHasBeenSelected()
+        {
+            if (!(airRadioButton.Checked || groundRadioButton.Checked || nextDayRadioButton.Checked))
+                return false;
+            if (nextDayRadioButton.Checked)
+                pC.SetTrasport(0.45);
+            if (airRadioButton.Checked)
+                pC.SetTrasport(0.25);
+            if (groundRadioButton.Checked)
+                pC.SetTrasport(0.15);
+
+            return true;
         }
 
         private Boolean CheckTextBoxsAreCorrect()
         {
             double height, width, length;
+       
+            //need to make sure it doesnt matter if its a number or a empty 
+            
+            if(!double.TryParse(heightTextBox.Text, out height)){ return false; }
 
-            if(!double.TryParse(heightTextBox.Text, out height)) { return false; }
-            if(!double.TryParse(widthTextBox.Text,out width)) { return false; }
-            if(!double.TryParse(lengthTextBox.Text, out length)) { return false; }
+            if (!double.TryParse(widthTextBox.Text, out width)){ return false; }
 
+            //optional
+            if (!double.TryParse(lengthTextBox.Text, out length)){
+                if (String.IsNullOrEmpty(lengthTextBox.Text))
+                    length = 0;
+                else
+                    return false;
+            }
+
+            pC.CreatePackage(height, width, length);
+            
+            
             return true;
            
         }
