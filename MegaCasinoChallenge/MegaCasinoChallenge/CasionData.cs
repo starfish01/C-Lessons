@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MegaCasinoChallenge
 {
-    class Class1
+    class CasionData
     {
         public int slotImage1 { get; set; }
         public int slotImage2 { get; set; }

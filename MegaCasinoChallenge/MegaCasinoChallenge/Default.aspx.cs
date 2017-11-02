@@ -17,7 +17,7 @@ namespace MegaCasinoChallenge
         protected void Button1_Click(object sender, EventArgs e)
         {
             //viewstate check if its been create or create it
-
+            
             // display current balance 
             
             // check if bet can be made (bet > 0) (bet < balance) (check if textbox has double value)
