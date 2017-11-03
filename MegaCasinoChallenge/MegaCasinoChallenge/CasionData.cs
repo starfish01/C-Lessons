@@ -7,9 +7,9 @@ namespace MegaCasinoChallenge
 {
     class CasionData
     {
-        public int slotImage1 { get; set; }
-        public int slotImage2 { get; set; }
-        public int slotImage3 { get; set; }
+        public int slotImage1int { get; set; }
+        public int slotImage2int { get; set; }
+        public int slotImage3int { get; set; }
             
         public Double betAmount { get; set; }
         public Double balanceAmount { get; set; }

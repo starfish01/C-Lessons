@@ -75,7 +75,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bar.png" />
+    <Content Include="Bell.png" />
+    <Content Include="Cherry.png" />
+    <Content Include="Clover.png" />
     <Content Include="Default.aspx" />
+    <Content Include="Diamond.png" />
+    <Content Include="HorseShoe.png" />
+    <Content Include="Lemon.png" />
+    <Content Include="Orange.png" />
+    <Content Include="Plum.png" />
+    <Content Include="Seven.png" />
+    <Content Include="Strawberry.png" />
+    <Content Include="Watermellon.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
