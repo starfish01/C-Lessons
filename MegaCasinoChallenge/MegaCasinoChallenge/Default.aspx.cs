@@ -14,7 +14,8 @@ namespace MegaCasinoChallenge
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (ViewState["MegaCasionData"] != null)
+            if (ViewState["Me" +
+                "gaCasionData"] != null)
             {
                 casionData = (CasionData)ViewState["MegaCasionData"];
               }
@@ -42,9 +43,9 @@ namespace MegaCasinoChallenge
             //Populate data
             PopulateData();
 
-            // display current balance 
-            
             // check if bet can be made (bet > 0) (bet < balance) (check if textbox has double value)
+            if (!CanWeBet())
+                return;
 
             // pick three random numbers out of 12
 
@@ -57,12 +58,37 @@ namespace MegaCasinoChallenge
             // check for 7's
 
             // save state
+            //ViewState.Add("MegaCasionData", casionData);
 
             // display winnings/ lose
             
             
 
         }
+
+        private bool CanWeBet()
+        {
+            double betAmount = BetValue();
+
+            if (betAmount <= 0)
+            {
+                winningsLabel.Text = "Cant Place a bet with nothing";
+                return false;
+            }
+
+
+            return true;
+        }
+
+        private double BetValue()
+        {
+           // Double x = 0;
+
+            Double.TryParse(betTextBox.Text, out double x);
+            
+            return x;
+        }
+
 
         private void PopulateData()
         {
