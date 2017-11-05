@@ -5,6 +5,8 @@ using System.Web;
 
 namespace MegaCasinoChallenge
 {
+    [Serializable]
+
     class CasionData
     {
         public int slotImage1int { get; set; }

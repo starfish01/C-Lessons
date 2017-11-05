@@ -14,14 +14,14 @@ namespace MegaCasinoChallenge
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (ViewState["Me" +
-                "gaCasionData"] != null)
+            casionData = new CasionData();
+
+            if (ViewState["MegaCasionData"] != null)
             {
                 casionData = (CasionData)ViewState["MegaCasionData"];
               }
             else
             {
-                casionData = new CasionData();
 
                 casionData.balanceAmount = 100;
                 casionData.betAmount = 5;
@@ -31,8 +31,13 @@ namespace MegaCasinoChallenge
                 casionData.slotImage2int = 10;
                 casionData.slotImage3int = 10;
 
+                PopulateData();
+
+                ViewState["MegaCasionData"] = casionData;
+
+
                // List<SpyClass> spyList = new List<SpyClass>();
-                //ViewState.Add("SpyListValue", spyList);
+               //ViewState.Add("SpyListValue", spyList);
             }
 
 
@@ -59,6 +64,7 @@ namespace MegaCasinoChallenge
 
             // save state
             //ViewState.Add("MegaCasionData", casionData);
+            ViewState["MegaCasionData"] = casionData;
 
             // display winnings/ lose
             
