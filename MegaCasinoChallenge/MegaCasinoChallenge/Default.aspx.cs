@@ -53,22 +53,110 @@ namespace MegaCasinoChallenge
                 return;
 
             // pick three random numbers out of 12
+            CreateRandomNumbers();
 
             // display new numbers
+            SetSlotImages();
 
-            // check for bar
+            // minus bet from betting total
+            SubmitBet();
 
             // check for cherries 
+            CheckForCherries();
 
             // check for 7's
+            CheckForJackPot();
 
-            // save state
-            //ViewState.Add("MegaCasionData", casionData);
-            ViewState["MegaCasionData"] = casionData;
+            // check for bar
+            CheckForBar();
+
+            //Do the math
+            DoTheMath();
 
             // display winnings/ lose
+            DisplayNewInfo();
+
+            //clear winnings amount
+            ResetData();
+
+            // save state
+            ViewState["MegaCasionData"] = casionData;
+
             
             
+
+        }
+
+        private void ResetData()
+        {
+            casionData.winningAmount = 0;
+           // casionData.betAmount = 0;
+           
+        }
+
+        private void DisplayNewInfo()
+        {
+            winningsLabel.Text = String.Format("You bet {0} and won {1}!",
+                casionData.betAmount.ToString("c"),casionData.winningAmount.ToString("c"));
+
+            balanceLabel.Text = (casionData.balanceAmount).ToString("c");
+
+
+
+
+        }
+
+        private void DoTheMath()
+        {
+            casionData.balanceAmount += casionData.winningAmount; 
+        }
+
+        private void CheckForBar()
+        {
+            if (casionData.slotImage1int == 1 || casionData.slotImage2int == 1 || casionData.slotImage3int == 1)
+                casionData.winningAmount = 0;
+        }
+
+        private void CheckForJackPot()
+        {
+            if (casionData.slotImage1int == 10 && casionData.slotImage2int == 10 && casionData.slotImage3int == 10)
+                casionData.winningAmount = casionData.betAmount * 100;
+        }
+
+        private void CheckForCherries()
+        {
+            int cherryCount = 0;
+
+            if (casionData.slotImage1int == 3)
+                cherryCount = 1;
+            if (casionData.slotImage2int == 3)
+                cherryCount += 1;
+            if (casionData.slotImage3int == 3)
+                cherryCount += 3;
+
+            if (cherryCount == 0)
+                return;
+            if (cherryCount == 1)
+                casionData.winningAmount = casionData.betAmount * 2;
+            if (cherryCount == 2)
+                casionData.winningAmount = casionData.betAmount * 3;
+            if (cherryCount == 3)
+                casionData.winningAmount = casionData.betAmount * 4;
+
+
+        }
+
+        private void SubmitBet()
+        {
+            casionData.balanceAmount -= casionData.betAmount;
+        }
+
+        private void CreateRandomNumbers()
+        {
+            Random random = new Random();
+            casionData.slotImage1int = random.Next(1, 13);
+            casionData.slotImage2int = random.Next(1, 13);
+            casionData.slotImage3int = random.Next(1, 13);
 
         }
 
@@ -76,9 +164,17 @@ namespace MegaCasinoChallenge
         {
             double betAmount = BetValue();
 
+            casionData.betAmount = betAmount;
+
             if (betAmount <= 0)
             {
                 winningsLabel.Text = "Cant Place a bet with nothing";
+                return false;
+            }
+
+            if(casionData.balanceAmount <= 0 || (casionData.betAmount > casionData.betAmount))
+            {
+                winningsLabel.Text = "ERROR";
                 return false;
             }
 
@@ -88,7 +184,6 @@ namespace MegaCasinoChallenge
 
         private double BetValue()
         {
-           // Double x = 0;
 
             Double.TryParse(betTextBox.Text, out double x);
             
@@ -98,8 +193,9 @@ namespace MegaCasinoChallenge
 
         private void PopulateData()
         {
-            betTextBox.Text = (casionData.betAmount).ToString();
-            balanceLabel.Text = (casionData.balanceAmount).ToString();
+           
+           // betTextBox.Text = (casionData.betAmount).ToString();
+            balanceLabel.Text = (casionData.balanceAmount).ToString("c");
             winningsLabel.Text = "";
 
             SetSlotImages();
