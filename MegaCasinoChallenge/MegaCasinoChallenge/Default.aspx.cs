@@ -36,8 +36,7 @@ namespace MegaCasinoChallenge
                 ViewState["MegaCasionData"] = casionData;
 
 
-               // List<SpyClass> spyList = new List<SpyClass>();
-               //ViewState.Add("SpyListValue", spyList);
+               
             }
 
 
@@ -90,7 +89,6 @@ namespace MegaCasinoChallenge
         private void ResetData()
         {
             casionData.winningAmount = 0;
-           // casionData.betAmount = 0;
            
         }
 
@@ -100,9 +98,7 @@ namespace MegaCasinoChallenge
                 casionData.betAmount.ToString("c"),casionData.winningAmount.ToString("c"));
 
             balanceLabel.Text = (casionData.balanceAmount).ToString("c");
-
-
-
+            
 
         }
 
@@ -168,13 +164,18 @@ namespace MegaCasinoChallenge
 
             if (betAmount <= 0)
             {
-                winningsLabel.Text = "Cant Place a bet with nothing";
+                winningsLabel.Text = "Can't Place a bet with nothing";
                 return false;
             }
 
-            if(casionData.balanceAmount <= 0 || (casionData.betAmount > casionData.betAmount))
+            if(casionData.balanceAmount <= 0 )
             {
-                winningsLabel.Text = "ERROR";
+                winningsLabel.Text = "ERROR - You have to bet something";
+                return false;
+            }
+            if (casionData.betAmount > casionData.balanceAmount)
+            {
+                winningsLabel.Text = "ERROR - Insufficient funds to place this bet";
                 return false;
             }
 
@@ -194,7 +195,6 @@ namespace MegaCasinoChallenge
         private void PopulateData()
         {
            
-           // betTextBox.Text = (casionData.betAmount).ToString();
             balanceLabel.Text = (casionData.balanceAmount).ToString("c");
             winningsLabel.Text = "";
 
