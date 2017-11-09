@@ -60,7 +60,7 @@ namespace StringChallenges
                 }
             }
             
-            resultLabel.Text = output;
+            resultLabel1.Text = output;
 
             wholeNamesArrayList.Reverse();
 
@@ -97,7 +97,7 @@ namespace StringChallenges
             }
             
 
-            resultLabel.Text = output1;
+            resultLabel2.Text = output1;
 
         }
     }

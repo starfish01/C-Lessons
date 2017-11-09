@@ -31,6 +31,33 @@ namespace StringChallenges {
         protected global::System.Web.UI.WebControls.Label resultLabel;
         
         /// <summary>
+        /// resultLabel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label resultLabel1;
+        
+        /// <summary>
+        /// resultLabel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label resultLabel2;
+        
+        /// <summary>
+        /// resultLabel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label resultLabel3;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
