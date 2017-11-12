@@ -36,14 +36,23 @@ namespace ChallengeHeroMonsterClasses
 
         private void Player1Attack()
         {
-            player2.Health -= (PlayerAttack(player1) - Defend()); 
+            int attack = PlayerAttack(player1);
+            int defend = Defend();
+            if (defend > attack)
+                return;
+            
+            player2.Health -= (attack - defend); 
             
         }
 
         private void Player2Attack()
         {
-            player1.Health -= (PlayerAttack(player2) - Defend());
+            int attack = PlayerAttack(player2);
+            int defend = Defend();
+            if (defend > attack)
+                return;
 
+            player1.Health -= (attack - defend);
         }
 
         private int PlayerAttack(Character x)
