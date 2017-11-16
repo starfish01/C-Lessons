@@ -15,7 +15,7 @@ namespace ChallengeHeroMonsterClasses
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            rnd = new Random();
+            
 
 
             if (!Page.IsPostBack)
@@ -30,6 +30,8 @@ namespace ChallengeHeroMonsterClasses
             }
 
             RefreshDisplay();
+            rnd = new Random((int)DateTime.Now.Ticks);
+
 
 
         }
@@ -41,8 +43,12 @@ namespace ChallengeHeroMonsterClasses
             if (defend > attack)
                 return;
             
-            player2.Health -= (attack - defend); 
+            player2.Health -= (attack - defend);
+
             
+
+           
+
         }
 
         private void Player2Attack()
@@ -53,6 +59,10 @@ namespace ChallengeHeroMonsterClasses
                 return;
 
             player1.Health -= (attack - defend);
+
+            
+           
+            
         }
 
         private int PlayerAttack(Character x)
@@ -78,6 +88,7 @@ namespace ChallengeHeroMonsterClasses
         {
             ViewState["Player1ViewState"] = player1;
             ViewState["Player2ViewState"] = player2;
+            
         }
 
         private void CreateHeros()
@@ -100,11 +111,56 @@ namespace ChallengeHeroMonsterClasses
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Player1Attack();
-            Player2Attack();
+
+            while(player1.Health > 0 && player2.Health > 0)
+            {
+                OutputToDisplay();
+
+
+                Player1Attack();
+                if (player2.Health <= 0)
+                {
+                    player2.Health = 0;
+                    OutputWinner(player1);
+                    break;
+                }
+
+                    
+                
+                Player2Attack();
+                if (player1.Health <= 0)
+                {
+                    player1.Health = 0;
+                    OutputWinner(player2);
+                    break;
+                }
+                RefreshDisplay();
+                SaveData();
+
+
+
+            }
+
             RefreshDisplay();
             SaveData();
 
+
+
+
+
+        }
+
+        private void OutputWinner(Character name)
+        {
+            debugLabel.Text += "</br> "+ name.Name +" is the winner";
+
+        }
+
+        private void OutputToDisplay()
+        {
+            
+            debugLabel.Text += "</br> " + player1.Name + " H:" + player1.Health.ToString() + " // " + player2.Name + " :" + player2.Health.ToString() ;
+            
         }
     }
 }
