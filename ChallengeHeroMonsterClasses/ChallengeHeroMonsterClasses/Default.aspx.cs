@@ -118,22 +118,15 @@ namespace ChallengeHeroMonsterClasses
 
 
                 Player1Attack();
-                if (player2.Health <= 0)
-                {
-                    player2.Health = 0;
-                    OutputWinner(player1);
+                if (CheckHealth(player2))
                     break;
-                }
 
                     
                 
                 Player2Attack();
-                if (player1.Health <= 0)
-                {
-                    player1.Health = 0;
-                    OutputWinner(player2);
+                if (CheckHealth(player1))
                     break;
-                }
+               
                 RefreshDisplay();
                 SaveData();
 
@@ -143,15 +136,33 @@ namespace ChallengeHeroMonsterClasses
 
             RefreshDisplay();
             SaveData();
-
-
-
-
-
+            
         }
+
+        private Boolean CheckHealth( Character x)
+        {
+            if (x.Health <= 0)
+            {
+                x.Health = 0;
+                OutputWinner(x);
+                return true;
+            }
+
+                
+
+            return false;
+        }
+
 
         private void OutputWinner(Character name)
         {
+
+
+            if (name.Equals(player1))
+                name = player2;
+            else
+                name = player1;
+            
             debugLabel.Text += "</br> "+ name.Name +" is the winner";
 
         }
