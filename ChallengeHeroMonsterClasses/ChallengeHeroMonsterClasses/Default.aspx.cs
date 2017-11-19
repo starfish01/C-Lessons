@@ -96,13 +96,13 @@ namespace ChallengeHeroMonsterClasses
             player1 = new Character();
             player1.Name = "Monster";
             player1.Health = 100;
-            player1.AttackBonus = 10;
+            //player1.AttackBonus = 10;
             player1.DamageMaximum = 10;
 
             player2 = new Character();
             player2.Name = "Hero";
             player2.Health = 100;
-            player2.AttackBonus = 9;
+           // player2.AttackBonus = 9;
             player2.DamageMaximum = 11;
 
             SaveData();
@@ -156,8 +156,7 @@ namespace ChallengeHeroMonsterClasses
 
         private void OutputWinner(Character name)
         {
-
-
+            
             if (name.Equals(player1))
                 name = player2;
             else
