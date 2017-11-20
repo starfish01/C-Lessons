@@ -31,9 +31,7 @@ namespace ChallengeHeroMonsterClasses
 
             RefreshDisplay();
             rnd = new Random((int)DateTime.Now.Ticks);
-
-
-
+            
         }
 
         private void Player1Attack()
@@ -44,11 +42,7 @@ namespace ChallengeHeroMonsterClasses
                 return;
             
             player2.Health -= (attack - defend);
-
             
-
-           
-
         }
 
         private void Player2Attack()
@@ -59,9 +53,6 @@ namespace ChallengeHeroMonsterClasses
                 return;
 
             player1.Health -= (attack - defend);
-
-            
-           
             
         }
 
@@ -88,7 +79,6 @@ namespace ChallengeHeroMonsterClasses
         {
             ViewState["Player1ViewState"] = player1;
             ViewState["Player2ViewState"] = player2;
-            
         }
 
         private void CreateHeros()
@@ -96,17 +86,14 @@ namespace ChallengeHeroMonsterClasses
             player1 = new Character();
             player1.Name = "Monster";
             player1.Health = 100;
-            //player1.AttackBonus = 10;
             player1.DamageMaximum = 10;
 
             player2 = new Character();
             player2.Name = "Hero";
             player2.Health = 100;
-           // player2.AttackBonus = 9;
             player2.DamageMaximum = 11;
 
             SaveData();
-            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -115,13 +102,10 @@ namespace ChallengeHeroMonsterClasses
             while(player1.Health > 0 && player2.Health > 0)
             {
                 OutputToDisplay();
-
-
+                
                 Player1Attack();
                 if (CheckHealth(player2))
                     break;
-
-                    
                 
                 Player2Attack();
                 if (CheckHealth(player1))
@@ -129,9 +113,7 @@ namespace ChallengeHeroMonsterClasses
                
                 RefreshDisplay();
                 SaveData();
-
-
-
+                
             }
 
             RefreshDisplay();
@@ -147,9 +129,7 @@ namespace ChallengeHeroMonsterClasses
                 OutputWinner(x);
                 return true;
             }
-
-                
-
+            
             return false;
         }
 
